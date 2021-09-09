@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MITIENDA.BlazorServer", "MITIENDA.BlazorServer\MITIENDA.BlazorServer.csproj", "{BD1F63FC-A0A9-4E39-85EF-6B1970E10090}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MITIENDA.BlazorServer", "MITIENDA.BlazorServer\MITIENDA.BlazorServer.csproj", "{BD1F63FC-A0A9-4E39-85EF-6B1970E10090}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

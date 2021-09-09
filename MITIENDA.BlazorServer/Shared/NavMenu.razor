@@ -1,5 +1,6 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">MITIENDA.BlazorServer</a>
+﻿
+<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">Mi Tienda</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,18 +9,52 @@
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
+            <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Inicio
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            <NavLink class="nav-link" href="categories">
+                <span class="oi oi-plus" aria-hidden="true"></span> Categorías
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+            <NavLink class="nav-link" href="products">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Productos
+            </NavLink>
+        </li>
+
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="customers">
+                <span class="oi oi-person" aria-hidden="true"></span> Clientes
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="sales">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Ventas
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="invoces">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Facturas
+            </NavLink>
+        </li>
+
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="proctsales">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Ventas por producto
+            </NavLink>
+        </li>
+
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="customerssales">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Ventas por cliente
+            </NavLink>
+        </li>
+
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="categoriessales">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Ventas por categorias
             </NavLink>
         </li>
     </ul>
