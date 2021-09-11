@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i49xWRPM/65x2LKIdeOBZv7A/ywpjjSm060AEQ28Dwy+9NCtfW0WMdVIZzIpuCWE2tKKQUIO9WuiGGySPZ8gfw==",
+  "dgSpecHash": "F6wgjHppW6iSh1GKLIkA2b2q0BUhkWQxNR37FlA5ZLM0yWDmsNaWUteQOpcK+ZIM9yYr32s3X9sZMtNH3JtCTQ==",
   "success": true,
-  "projectFilePath": "D:\\PROYECTOS\\CURSO\\PROYECTO TIENDA\\MITIENDA.BlazorServer\\MITIENDA.BlazorServer.csproj",
+  "projectFilePath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.BlazorServer\\MITIENDA.BlazorServer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROYECTOS\\CURSO\\PROYECTO TIENDA\\MITIENDA.BlazorServer\\MITIENDA.BlazorServer.csproj",
+      "projectUniqueName": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.BlazorServer\\MITIENDA.BlazorServer.csproj",
       "projectName": "MITIENDA.BlazorServer",
-      "projectPath": "D:\\PROYECTOS\\CURSO\\PROYECTO TIENDA\\MITIENDA.BlazorServer\\MITIENDA.BlazorServer.csproj",
+      "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.BlazorServer\\MITIENDA.BlazorServer.csproj",
       "packagesPath": "C:\\Users\\Eduin\\.nuget\\packages\\",
-      "outputPath": "D:\\PROYECTOS\\CURSO\\PROYECTO TIENDA\\MITIENDA.BlazorServer\\obj\\",
+      "outputPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.BlazorServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
