@@ -172,3 +172,11 @@ D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\ref\MITIENDA.Bl
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\MITIENDA.BlazorServer.pdb
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\MITIENDA.BlazorServer.genruntimeconfig.cache
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\MITIENDA.BlazorServer.csproj.CopyComplete
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Account\Login.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Account\Login.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Account\Register.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Account\Register.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Account\RecoverPassword.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Account\RecoverPassword.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Shared\UnauthorizedLayout.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Shared\UnauthorizedLayout.razor.g.cs

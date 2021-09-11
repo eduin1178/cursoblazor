@@ -90,7 +90,7 @@ using MITIENDA.BlazorServer.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 63 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Shared\NavMenu.razor"
+#line 64 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
