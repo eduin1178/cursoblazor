@@ -79,6 +79,20 @@ using MITIENDA.BlazorServer.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using MITIENDA.BlazorServer.Data.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 15 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using MITIENDA.BlazorServer.Data.Models;
+
+#line default
+#line hidden
+#nullable disable
     public partial class UnauthorizedLayout : LayoutComponentBase
     {
         #pragma warning disable 1998

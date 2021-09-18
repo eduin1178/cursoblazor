@@ -82,6 +82,20 @@ using MITIENDA.BlazorServer.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using MITIENDA.BlazorServer.Data.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 15 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using MITIENDA.BlazorServer.Data.Models;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -90,6 +104,20 @@ using MITIENDA.BlazorServer.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 7 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
+       
+
+    protected void ListaRoles()
+    {
+        var lista = rolesService.ListaRoles();
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private RolesService rolesService { get; set; }
     }
 }
 #pragma warning restore 1591

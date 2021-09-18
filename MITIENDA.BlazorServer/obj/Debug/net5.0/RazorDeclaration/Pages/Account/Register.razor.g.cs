@@ -82,6 +82,20 @@ using MITIENDA.BlazorServer.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 14 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using MITIENDA.BlazorServer.Data.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 15 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using MITIENDA.BlazorServer.Data.Models;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.LayoutAttribute(typeof(UnauthorizedLayout))]
     [Microsoft.AspNetCore.Components.RouteAttribute("/account/register")]
     public partial class Register : Microsoft.AspNetCore.Components.ComponentBase
@@ -91,6 +105,34 @@ using MITIENDA.BlazorServer.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 57 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Account\Register.razor"
+       
+
+    public RegistroUsuarioModel Model { get; set; } = new RegistroUsuarioModel
+    {
+        IdRol = 5,
+    };
+
+    protected void Registrar()
+    {
+        var res =  service.Registrar(Model);
+
+        //if (res.IsSuccess)
+        //{
+
+        //}
+        //else
+        //{
+
+        //}
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private UsuariosService service { get; set; }
     }
 }
 #pragma warning restore 1591

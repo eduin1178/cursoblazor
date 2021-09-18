@@ -12,22 +12,28 @@
 
                 <h4 class="card-title text-center">Registro de Usuario</h4>
                 <div class="col-md-12 mb-3">
-                    <label>Usuario</label>
-                    <input type="text" class="form-control" />
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" @bind="Model.Nombre" />
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <label>Email</label>
+                    <input type="email" class="form-control" @bind="Model.Email" />
                 </div>
 
                 <div class="col-md-12 mb-3">
                     <label>Contraseña</label>
-                    <input type="password" class="form-control" />
+                    <input type="password" class="form-control" @bind="Model.Clave" />
                 </div>
 
                 <div class="col-md-12 mb-3">
                     <label>Confirmar contraseña</label>
-                    <input type="password" class="form-control" />
+                    <input type="password" class="form-control" @bind="Model.ConfirmPassword" />
                 </div>
 
                 <div class="col-md-12 mb-3">
-                    <a href="#" class="btn btn-primary btn-block">Registrarme</a>
+                    <button class="btn btn-primary btn-block"
+                            @onclick="Registrar">Registrarme</button>
                 </div>
 
                 <div class="col-md-12 mb-3">
@@ -46,6 +52,27 @@
     </div>
 </div>
 
+@inject UsuariosService service
+
 @code {
+
+    public RegistroUsuarioModel Model { get; set; } = new RegistroUsuarioModel
+    {
+        IdRol = 5,
+    };
+
+    protected void Registrar()
+    {
+        var res =  service.Registrar(Model);
+
+        //if (res.IsSuccess)
+        //{
+
+        //}
+        //else
+        //{
+
+        //}
+    }
 
 }

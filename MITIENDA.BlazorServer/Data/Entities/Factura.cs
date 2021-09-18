@@ -11,5 +11,9 @@ namespace MITIENDA.BlazorServer.Data.Entities
         public string Numero { get; set; }
         public DateTime Fecha { get; set; }
         public int IdCliente { get; set; }
+
+        public virtual Cliente Cliente { get; set; }
+
+        public virtual ICollection<DetalleFactura> DetallesFacturas { get; set; }
     }
 }
