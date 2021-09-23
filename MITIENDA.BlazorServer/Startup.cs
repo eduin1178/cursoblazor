@@ -1,3 +1,4 @@
+using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +38,8 @@ namespace MITIENDA.BlazorServer
             services.AddTransient<MiTiendaDbContext>();
             services.AddTransient<UsuariosService>();
             services.AddTransient<RolesService>();
+
+            services.AddSweetAlert2();
 
         }
                 

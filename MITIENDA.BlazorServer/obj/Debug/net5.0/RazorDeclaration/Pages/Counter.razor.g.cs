@@ -96,6 +96,13 @@ using MITIENDA.BlazorServer.Data.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 17 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using CurrieTechnologies.Razor.SweetAlert2;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
     public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
     {

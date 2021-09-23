@@ -9,32 +9,44 @@
                 <h4>Mi Tienda</h4>
             </div>
             <div class="card-body">
+                <EditForm Model="Model" OnValidSubmit="Registrar">
+                    <DataAnnotationsValidator />
 
-                <h4 class="card-title text-center">Registro de Usuario</h4>
-                <div class="col-md-12 mb-3">
-                    <label>Nombre</label>
-                    <input type="text" class="form-control" @bind="Model.Nombre" />
-                </div>
+                    <h4 class="card-title text-center">Registro de Usuario</h4>
+                    <div class="col-md-12 mb-3">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" @bind="Model.Nombre" />
+                        <ValidationMessage For="@(()=>Model.Nombre)" />
+                    </div>
 
-                <div class="col-md-12 mb-3">
-                    <label>Email</label>
-                    <input type="email" class="form-control" @bind="Model.Email" />
-                </div>
+                    <div class="col-md-12 mb-3">
+                        <label>Email</label>
+                        <input type="email" class="form-control" @onchange="ValidarEmail" />
+                        <ValidationMessage For="@(()=>Model.Email)" />
+                        @if (MostrarMensaje)
+                        {
+                            <span class="text-danger">El email que intenta registrar ya existe</span>
+                        }
+                    </div>
 
-                <div class="col-md-12 mb-3">
-                    <label>Contraseña</label>
-                    <input type="password" class="form-control" @bind="Model.Clave" />
-                </div>
+                    <div class="col-md-12 mb-3">
+                        <label>Contraseña</label>
+                        <input type="password" class="form-control" @bind="Model.Clave" />
+                        <ValidationMessage For="@(()=>Model.Clave)" />
+                    </div>
 
-                <div class="col-md-12 mb-3">
-                    <label>Confirmar contraseña</label>
-                    <input type="password" class="form-control" @bind="Model.ConfirmPassword" />
-                </div>
+                    <div class="col-md-12 mb-3">
+                        <label>Confirmar contraseña</label>
+                        <input type="password" class="form-control" @bind="Model.ConfirmPassword" />
+                        <ValidationMessage For="@(()=>Model.ConfirmPassword)" />
+                    </div>
 
-                <div class="col-md-12 mb-3">
-                    <button class="btn btn-primary btn-block"
-                            @onclick="Registrar">Registrarme</button>
-                </div>
+                    <div class="col-md-12 mb-3">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Registrarme
+                        </button>
+                    </div>
+                </EditForm>
 
                 <div class="col-md-12 mb-3">
                     <hr />
@@ -53,26 +65,55 @@
 </div>
 
 @inject UsuariosService service
+@inject SweetAlertService swal
+@inject NavigationManager navigation
 
 @code {
+
+    public bool MostrarMensaje { get; set; } = false;
 
     public RegistroUsuarioModel Model { get; set; } = new RegistroUsuarioModel
     {
         IdRol = 5,
     };
 
-    protected void Registrar()
+    protected async void Registrar()
     {
-        var res =  service.Registrar(Model);
+        var res = service.Registrar(Model);
 
-        //if (res.IsSuccess)
-        //{
+        if (res.IsSuccess)
+        {
 
-        //}
-        //else
-        //{
+            var result = await swal.FireAsync(new SweetAlertOptions
+            {
+                ShowCloseButton = true,
+                Title = "Todo bien!",
+                Text = res.Message,
+                Icon = SweetAlertIcon.Success,
+            });
 
-        //}
+            navigation.NavigateTo("/account/login");
+
+        }
+        else
+        {
+            var result = await swal.FireAsync(new SweetAlertOptions
+            {
+                ShowCloseButton = true,
+                Title = "Error",
+                Text = res.Message,
+                Icon = SweetAlertIcon.Error,
+            });
+        }
     }
 
+    protected void ValidarEmail(ChangeEventArgs e)
+    {
+        var res = service.ValidarEmail(e.Value.ToString());
+        MostrarMensaje = res.IsSuccess;
+
+        Model.Email = e.Value.ToString();
+    }
+
+  
 }

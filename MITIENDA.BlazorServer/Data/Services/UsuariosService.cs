@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MITIENDA.BlazorServer.Data.Extensions;
 
 namespace MITIENDA.BlazorServer.Data.Services
 {
@@ -20,11 +21,30 @@ namespace MITIENDA.BlazorServer.Data.Services
         {
             var res = new MsgResult();
 
-            //TODO: Pendiente verificar que no exista otro usuario con el mismo email
+            
+            var newUser = _context.Usuarios.FirstOrDefault(x => x.Email == usuario.Email);
+
+            if (newUser!=null)
+            {
+                res.IsSuccess = false;
+                res.Message = "Ya existe un usuario con este email";
+                return res;
+            }
+
             //TODO: Pendiente validar confirmación de contraseña
             //TODO: Pendiente encryptar clave
 
-            _context.Usuarios.Add(usuario);
+            var claveEncriptada = usuario.Clave.Encriptar();
+
+            newUser = new Usuario
+            {
+                IdRol = usuario.IdRol,
+                Email = usuario.Email,
+                Clave = claveEncriptada,
+                Nombre = usuario.Nombre,
+            };
+
+            _context.Usuarios.Add(newUser);
 
             try
             {
@@ -43,6 +63,22 @@ namespace MITIENDA.BlazorServer.Data.Services
             return res;
         }
 
+        public MsgResult ValidarEmail(string email)
+        {
+            var res = new MsgResult();
 
+            var existeEmail = _context.Usuarios.FirstOrDefault(x => x.Email == email);
+
+            if (existeEmail==null)
+            {
+                res.IsSuccess = false;
+            }
+            else
+            {
+                res.IsSuccess = true;
+            }
+
+            return res;
+        }
     }
 }

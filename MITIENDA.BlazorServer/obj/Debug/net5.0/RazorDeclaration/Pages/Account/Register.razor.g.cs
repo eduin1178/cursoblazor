@@ -96,6 +96,13 @@ using MITIENDA.BlazorServer.Data.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 17 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using CurrieTechnologies.Razor.SweetAlert2;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.LayoutAttribute(typeof(UnauthorizedLayout))]
     [Microsoft.AspNetCore.Components.RouteAttribute("/account/register")]
     public partial class Register : Microsoft.AspNetCore.Components.ComponentBase
@@ -106,32 +113,61 @@ using MITIENDA.BlazorServer.Data.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 57 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Account\Register.razor"
+#line 71 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Account\Register.razor"
        
+
+    public bool MostrarMensaje { get; set; } = false;
 
     public RegistroUsuarioModel Model { get; set; } = new RegistroUsuarioModel
     {
         IdRol = 5,
     };
 
-    protected void Registrar()
+    protected async void Registrar()
     {
-        var res =  service.Registrar(Model);
+        var res = service.Registrar(Model);
 
-        //if (res.IsSuccess)
-        //{
+        if (res.IsSuccess)
+        {
 
-        //}
-        //else
-        //{
+            var result = await swal.FireAsync(new SweetAlertOptions
+            {
+                ShowCloseButton = true,
+                Title = "Todo bien!",
+                Text = res.Message,
+                Icon = SweetAlertIcon.Success,
+            });
 
-        //}
+            navigation.NavigateTo("/account/login");
+
+        }
+        else
+        {
+            var result = await swal.FireAsync(new SweetAlertOptions
+            {
+                ShowCloseButton = true,
+                Title = "Error",
+                Text = res.Message,
+                Icon = SweetAlertIcon.Error,
+            });
+        }
     }
 
+    protected void ValidarEmail(ChangeEventArgs e)
+    {
+        var res = service.ValidarEmail(e.Value.ToString());
+        MostrarMensaje = res.IsSuccess;
+
+        Model.Email = e.Value.ToString();
+    }
+
+  
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private SweetAlertService swal { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private UsuariosService service { get; set; }
     }
 }

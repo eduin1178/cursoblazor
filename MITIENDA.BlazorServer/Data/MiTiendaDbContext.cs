@@ -71,13 +71,13 @@ namespace MITIENDA.BlazorServer.Data
 
             //Detalles Facturas
             var detalles = modelBuilder.Entity<DetalleFactura>();
-            facturas.HasKey(x => x.Id);
-            facturas.Property(x => x.Id).ValueGeneratedOnAdd();
+            detalles.HasKey(x => x.Id);
+            detalles.Property(x => x.Id).ValueGeneratedOnAdd();
 
             //Usuarios
             var usuarios = modelBuilder.Entity<Usuario>();
-            facturas.HasKey(x => x.Id);
-            facturas.Property(x => x.Id).ValueGeneratedOnAdd();
+            usuarios.HasKey(x => x.Id);
+            usuarios.Property(x => x.Id).ValueGeneratedOnAdd();
 
         }
     }
