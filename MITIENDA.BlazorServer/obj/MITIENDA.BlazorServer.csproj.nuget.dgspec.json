@@ -59,6 +59,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.10, )"
+            },
+            "Sotsera.Blazor.Toaster": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             }
           },
           "imports": [

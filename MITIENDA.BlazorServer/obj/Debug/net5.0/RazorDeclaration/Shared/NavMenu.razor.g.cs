@@ -103,6 +103,13 @@ using CurrieTechnologies.Razor.SweetAlert2;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 18 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using Sotsera.Blazor.Toaster;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

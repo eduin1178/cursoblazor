@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MITIENDA.BlazorServer.Data;
 using MITIENDA.BlazorServer.Data.Services;
+using Sotsera.Blazor.Toaster.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,20 @@ namespace MITIENDA.BlazorServer
             services.AddTransient<UsuariosService>();
             services.AddTransient<RolesService>();
 
+            //TERCEROS
+
             services.AddSweetAlert2();
+
+            // Add the library to the DI system
+            services.AddToaster(config =>
+            {
+                //example customizations
+                config.PositionClass = Defaults.Classes.Position.TopCenter;
+                config.PreventDuplicates = true;
+                config.NewestOnTop = false;
+                
+                
+            });
 
         }
                 

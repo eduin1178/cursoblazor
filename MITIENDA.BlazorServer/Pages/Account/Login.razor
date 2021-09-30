@@ -2,53 +2,82 @@
 
 @layout UnauthorizedLayout
 
-    <div class="container">
-        <div class="col-md-6 offset-md-3">
+<div class="container">
+    <div class="col-md-6 offset-md-3">
 
-            <div class="card">
-                <div class="card-header">
-                    <h4>Mi Tienda</h4>
-                </div>
-                <div class="card-body">
-
+        <div class="card">
+            <div class="card-header">
+                <h4>Mi Tienda</h4>
+            </div>
+            <div class="card-body">
+                <EditForm Model="Model" OnValidSubmit="LoginUser">
+                    <DataAnnotationsValidator />
                     <h4 class="card-title text-center">Iniciar Sesión</h4>
                     <div class="col-md-12 mb-3">
                         <label>Usuario</label>
-                        <input type="text" class="form-control" />
+                        <input type="email" class="form-control" @bind="Model.Email" />
+                        <ValidationMessage For="(()=>Model.Email)" />
                     </div>
 
                     <div class="col-md-12 mb-3">
                         <label>Contraseña</label>
-                        <input type="password" class="form-control" />
+                        <input type="password" class="form-control" @bind="Model.Password" />
+                        <ValidationMessage For="(()=>Model.Password)" />
                     </div>
 
                     <div class="col-md-12 mb-3">
                         <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                                   @bind="Model.RememberMe">
                             <label class="form-check-label" for="exampleCheck1">Mantener sesión abierta</label>
                         </div>
                     </div>
 
                     <div class="col-md-12 mb-3">
-                        <a href="#" class="btn btn-primary btn-block">Iniciar</a>
-                    </div>
-                    <div class="col-md-12 mb-3">
-                        <a href="/account/recoverpassword"> ¿Olvidaste tu contraseña?</a>
-                    </div>
-                    <div class="col-md-12 mb-3">
-                        <hr />
-                    </div>
-                    <div class="col-md-12 mb-3">
-                        <h5>¿Aun no tienes una cuenta?</h5>
+                        <button type="submit" class="btn btn-primary btn-block">Iniciar</button>
                     </div>
 
-                    <div class="col-md-12 mb-3">
-                        <a href="/account/register" class="btn btn-success btn-block">Registrarte Ahora</a>
-                    </div>
+                </EditForm>
+                <div class="col-md-12 mb-3">
+                    <a href="/account/recoverpassword"> ¿Olvidaste tu contraseña?</a>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <hr />
+                </div>
+                <div class="col-md-12 mb-3">
+                    <h5>¿Aun no tienes una cuenta?</h5>
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <a href="/account/register" class="btn btn-success btn-block">Registrarte Ahora</a>
                 </div>
             </div>
         </div>
     </div>
-    @code {
+</div>
 
+<ToastContainer />
+
+
+@inject UsuariosService usuarioService
+
+@inject IToaster toaster 
+@code {
+
+
+    public LoginUsuarioModel Model { get; set; } = new LoginUsuarioModel();
+
+    protected void LoginUser()
+    {
+        var res = usuarioService.Login(Model);
+
+        if (!res.IsSuccess)
+        {
+            toaster.Error(res.Message, "Error");
+        }
+        else
+        {
+            toaster.Success(res.Message, "Todo bien!");
+        }
     }
+}

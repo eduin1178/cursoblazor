@@ -100,6 +100,13 @@ using CurrieTechnologies.Razor.SweetAlert2;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 18 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using Sotsera.Blazor.Toaster;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.LayoutAttribute(typeof(UnauthorizedLayout))]
     [Microsoft.AspNetCore.Components.RouteAttribute("/account/register")]
     public partial class Register : Microsoft.AspNetCore.Components.ComponentBase

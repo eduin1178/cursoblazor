@@ -80,5 +80,33 @@ namespace MITIENDA.BlazorServer.Data.Services
 
             return res;
         }
+
+        public MsgResult Login(LoginUsuarioModel model)
+        {
+            var result = new MsgResult();
+
+            var user = _context.Usuarios.FirstOrDefault(u=>u.Email==model.Email);
+
+            if (user==null)
+            {
+                result.IsSuccess =false;
+                result.Message = "Usuario no existe";
+
+                return result;
+            }
+
+            var passwordHashed = model.Password.Encriptar();
+
+            if (user.Clave != passwordHashed)
+            {
+                result.IsSuccess = false;
+                result.Message = "Contraseña no válida";
+                return result;
+            }
+
+            result.IsSuccess = true;
+            result.Message = "Acceso concedido";
+            return result;
+        }
     }
 }

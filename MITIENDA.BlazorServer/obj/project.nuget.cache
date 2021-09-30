@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gwGPA6/JFcg8+8HquAsOaSJw0zM6NitZg5jlXga/wkV5BKceoy5ICY9wAtYANpxg6+ZEX/10pxokyAeBuvf/3g==",
+  "dgSpecHash": "t4xprem4P7QuV9RwROUAeurPf4/Qcis6C3o8VVqGKwwftorj9puJoK5AG3KXRxEPuLjtmxypntae4QFGxFu1Qw==",
   "success": true,
   "projectFilePath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.BlazorServer\\MITIENDA.BlazorServer.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\Eduin\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Eduin\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
     "C:\\Users\\Eduin\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
+    "C:\\Users\\Eduin\\.nuget\\packages\\sotsera.blazor.toaster\\3.0.0\\sotsera.blazor.toaster.3.0.0.nupkg.sha512",
     "C:\\Users\\Eduin\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Eduin\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\Eduin\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",

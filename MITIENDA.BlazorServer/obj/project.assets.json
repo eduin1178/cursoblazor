@@ -539,6 +539,32 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Sotsera.Blazor.Toaster/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.0",
+          "Microsoft.AspNetCore.Components.Web": "3.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Sotsera.Blazor.Toaster.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Sotsera.Blazor.Toaster.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/netstandard2.1/Properties/launchSettings.json": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          }
+        },
+        "build": {
+          "buildTransitive/Sotsera.Blazor.Toaster.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Sotsera.Blazor.Toaster.props": {}
+        }
+      },
       "System.Collections/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2461,6 +2487,26 @@
         "lib/netstandard1.0/_._",
         "runtime.native.system.4.3.0.nupkg.sha512",
         "runtime.native.system.nuspec"
+      ]
+    },
+    "Sotsera.Blazor.Toaster/3.0.0": {
+      "sha512": "WXdrKlySEMsbnReVDeZypOisFTU0VHXUAb+JfPWWRWwCKW5FTdounuzIs0ArwTfEgR8W6T3DyDlC95daqyJ1ww==",
+      "type": "package",
+      "path": "sotsera.blazor.toaster/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/Sotsera.Blazor.Toaster.props",
+        "buildMultiTargeting/Sotsera.Blazor.Toaster.props",
+        "buildTransitive/Sotsera.Blazor.Toaster.props",
+        "content/Properties/launchSettings.json",
+        "contentFiles/any/netstandard2.1/Properties/launchSettings.json",
+        "lib/netstandard2.1/Sotsera.Blazor.Toaster.dll",
+        "sotsera.blazor.toaster.3.0.0.nupkg.sha512",
+        "sotsera.blazor.toaster.nuspec",
+        "staticwebassets/toastr.min.css"
       ]
     },
     "System.Collections/4.3.0": {
@@ -6000,7 +6046,8 @@
     "net5.0": [
       "CurrieTechnologies.Razor.SweetAlert2 >= 5.0.2",
       "Microsoft.EntityFrameworkCore >= 5.0.10",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10",
+      "Sotsera.Blazor.Toaster >= 3.0.0"
     ]
   },
   "packageFolders": {
@@ -6063,6 +6110,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[5.0.10, )"
+          },
+          "Sotsera.Blazor.Toaster": {
+            "target": "Package",
+            "version": "[3.0.0, )"
           }
         },
         "imports": [
