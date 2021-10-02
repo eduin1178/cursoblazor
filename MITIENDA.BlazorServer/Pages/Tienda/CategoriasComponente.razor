@@ -1,0 +1,140 @@
+﻿@page "/categories"
+
+
+@attribute [Authorize]
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+
+            <div class="input-group">
+                <input type="text" class="form-control" @bind="Model.Nombre" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary" @onclick="AgregarCategoria">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre de la categoria</th>
+                        <th>Productos</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cat in ListaCategorias)
+                    {
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" @bind="cat.Nombre" />
+                            </td>
+                            <td>@cat.CantidadProductos</td>
+                            <td>
+                                <button class="btn btn-success" @onclick="(()=>ModificarCategoria(cat))">Guardar</button>
+                                <button class="btn btn-danger" @onclick="(()=>EliminarCategoria(cat.Id))">Eliminar</button>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ToastContainer />
+
+@inject CategoriasService categoriaService
+
+@inject IToaster toaster
+@inject SweetAlertService swal
+
+@code {
+
+    public CategoriaModel Model { get; set; } = new CategoriaModel();
+
+    public List<CategoriaModel> ListaCategorias { get; set; } = new List<CategoriaModel>();
+
+    protected override void OnInitialized()
+    {
+        CargarCategorias();
+        //otros metodos
+    }
+
+    protected void CargarCategorias()
+    {
+        var result = categoriaService.ListaCategorias();
+        ListaCategorias = result;
+    }
+
+    protected void AgregarCategoria()
+    {
+        var result = categoriaService.Crear(Model);
+        if (result.IsSuccess)
+        {
+            Model.Id = result.Code;
+            Model.CantidadProductos = 0;
+
+            ListaCategorias.Add(Model);
+
+            Model = new CategoriaModel();
+            toaster.Success(result.Message, "OK");
+        }
+        else
+        {
+            toaster.Error(result.Message, "Error");
+        }
+
+    }
+
+
+
+    protected void ModificarCategoria(CategoriaModel categoria)
+    {
+        var result = categoriaService.Modificar(categoria);
+        if (result.IsSuccess)
+        {
+            toaster.Success(result.Message, "OK");
+        }
+        else
+        {
+            toaster.Error(result.Message, "Error");
+        }
+
+    }
+
+    protected async Task EliminarCategoria(int idCategoria)
+    {
+        var res = await swal.FireAsync(new SweetAlertOptions
+        {
+            Title = "¿Confirma que desea eliminar esta categoría?",
+            Text = "Si la elimina, no podrá recuperarla",
+            ShowConfirmButton = true,
+            ConfirmButtonText = "Si, eliminar",
+            ShowCancelButton = true,
+            CancelButtonText = "No, no la elimine"
+        });
+
+        if (!res.IsConfirmed)
+        {
+            return;
+        }
+
+        var result = categoriaService.Eliminar(idCategoria);
+
+        if (result.IsSuccess)
+        {
+            CargarCategorias();
+            toaster.Success(result.Message, "OK");
+        }
+        else
+        {
+            toaster.Error(result.Message, "Error");
+        }
+    }
+}

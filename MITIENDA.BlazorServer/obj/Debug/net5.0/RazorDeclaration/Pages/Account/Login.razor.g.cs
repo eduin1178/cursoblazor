@@ -97,14 +97,28 @@ using MITIENDA.BlazorServer.Data.Models;
 #line hidden
 #nullable disable
 #nullable restore
-#line 17 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
-using CurrieTechnologies.Razor.SweetAlert2;
+#line 16 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using MITIENDA.BlazorServer.Data.Providers;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 18 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using CurrieTechnologies.Razor.SweetAlert2;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 19 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
+using Blazored.LocalStorage;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 20 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
 using Sotsera.Blazor.Toaster;
 
 #line default
@@ -120,13 +134,13 @@ using Sotsera.Blazor.Toaster;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Account\Login.razor"
+#line 68 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Account\Login.razor"
        
 
 
     public LoginUsuarioModel Model { get; set; } = new LoginUsuarioModel();
 
-    protected void LoginUser()
+    protected async Task LoginUser()
     {
         var res = usuarioService.Login(Model);
 
@@ -136,7 +150,18 @@ using Sotsera.Blazor.Toaster;
         }
         else
         {
-            toaster.Success(res.Message, "Todo bien!");
+
+            var token = new LoginModel
+            {
+                Usuario = Model.Email,
+                Recordar = Model.RememberMe,
+            };
+
+
+            await authProvider.Login(token);
+
+            navigation.NavigateTo("/", true);
+
         }
     }
 
@@ -144,6 +169,9 @@ using Sotsera.Blazor.Toaster;
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IToaster toaster { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigation { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILocalStorageService localStorage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthProvider authProvider { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private UsuariosService usuarioService { get; set; }
     }
 }

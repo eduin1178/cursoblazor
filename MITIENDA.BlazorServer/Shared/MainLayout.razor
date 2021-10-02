@@ -6,11 +6,21 @@
     </div>
 
     <div class="main">
-        <div class="top-row px-4">            
-            <span>Nombre de Usuario</span>
-            <span>
-                <a href="/account/login">Login</a>
-            </span>
+        <div class="top-row px-4">
+            <AuthorizeView>
+                <Authorized>
+                    <span>@context.User.Identity.Name</span>
+                    <span>
+                        <a href="/account/logout">Salir</a>
+                    </span>
+                </Authorized>
+                <NotAuthorized>
+                    <span>
+                        <a href="/account/login">Login</a>
+                    </span>
+                </NotAuthorized>
+            </AuthorizeView>
+           
         </div>
 
         <div class="content px-4">

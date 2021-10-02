@@ -1,6 +1,8 @@
+using Blazored.LocalStorage;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MITIENDA.BlazorServer.Data;
+using MITIENDA.BlazorServer.Data.Providers;
 using MITIENDA.BlazorServer.Data.Services;
 using Sotsera.Blazor.Toaster.Core.Models;
 using System;
@@ -39,10 +42,15 @@ namespace MITIENDA.BlazorServer
             services.AddTransient<MiTiendaDbContext>();
             services.AddTransient<UsuariosService>();
             services.AddTransient<RolesService>();
+            services.AddTransient<CategoriasService>();
+
+            services.AddTransient<AuthProvider>();
+            services.AddTransient<AuthenticationStateProvider, MiAuthenticationState>();
 
             //TERCEROS
 
             services.AddSweetAlert2();
+            services.AddBlazoredLocalStorage();
 
             // Add the library to the DI system
             services.AddToaster(config =>

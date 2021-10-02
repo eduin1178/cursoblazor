@@ -1,0 +1,17 @@
+﻿@inject NavigationManager navigation
+
+@inject AuthenticationStateProvider authProdiver
+
+@code { 
+
+    protected override async Task OnInitializedAsync()
+    {
+        var auth = await authProdiver.GetAuthenticationStateAsync();
+
+        if (!auth.User.Identity.IsAuthenticated)
+        {
+            navigation.NavigateTo("/account/login");
+        }
+    }
+
+}

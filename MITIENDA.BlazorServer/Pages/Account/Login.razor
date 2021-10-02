@@ -60,14 +60,17 @@
 
 
 @inject UsuariosService usuarioService
+@inject AuthProvider authProvider 
 
+@inject ILocalStorageService localStorage 
+@inject NavigationManager navigation
 @inject IToaster toaster 
 @code {
 
 
     public LoginUsuarioModel Model { get; set; } = new LoginUsuarioModel();
 
-    protected void LoginUser()
+    protected async Task LoginUser()
     {
         var res = usuarioService.Login(Model);
 
@@ -77,7 +80,18 @@
         }
         else
         {
-            toaster.Success(res.Message, "Todo bien!");
+
+            var token = new LoginModel
+            {
+                Usuario = Model.Email,
+                Recordar = Model.RememberMe,
+            };
+
+
+            await authProvider.Login(token);
+
+            navigation.NavigateTo("/", true);
+
         }
     }
 }

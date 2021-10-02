@@ -48,6 +48,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Blazored.LocalStorage": {
+              "target": "Package",
+              "version": "[4.1.5, )"
+            },
             "CurrieTechnologies.Razor.SweetAlert2": {
               "target": "Package",
               "version": "[5.0.2, )"
