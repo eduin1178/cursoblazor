@@ -224,3 +224,5 @@ D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaratio
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Shared\RidirectToLogin.razor.g.cs
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Account\Logout.razor.g.cs
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Account\Logout.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Tienda\ProductosComponente.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Tienda\ProductosComponente.razor.g.cs

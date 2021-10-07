@@ -1,0 +1,227 @@
+﻿@page "/products"
+
+@attribute [Authorize]
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h4>Productos</h4>
+        </div>
+        <div class="card-body">
+            <EditForm Model="Producto" OnValidSubmit="AgregarProducto">
+                <div class="row">
+                    <div class="col-4">
+                        <label>Categoría</label>
+                        <select class="form-control" @onchange="AlCamabiarCategoriaSeleccionada">
+                            @if (ListaCategorias != null)
+                            {
+                                @foreach (var cat in ListaCategorias)
+                                {
+                                    <option value="@cat.Id">@cat.Nombre</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="col-8">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" @bind="Producto.Nombre" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-2">
+                        <label>Referencia</label>
+                        <input type="text" class="form-control" @bind="Producto.Referencia" />
+                    </div>
+                    <div class="col-2">
+                        <label>Existencia</label>
+                        <input type="number" class="form-control" @bind="Producto.Stock" />
+                    </div>
+                    <div class="col-3">
+                        <label>Costo</label>
+                        <input type="number" class="form-control" @bind="Producto.Costo" />
+                    </div>
+                    <div class="col-5">
+                        <label>Precio</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" @bind="Producto.Precio" />
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Ref</th>
+                                    <th>Nombre</th>
+                                    <th>Stock</th>
+                                    <th>Costo</th>
+                                    <th>Precio</th>
+                                    <th>Margen</th>
+                                    <th>Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var producto in ListaProductos)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="text" class="form-control" @bind="producto.Referencia" />
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" @bind="producto.Nombre" />
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control" @bind="producto.Stock" />
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control" @bind="producto.Costo" />
+                                        </td>
+                                        <td>
+                                            <input type="number" class="form-control" @bind="producto.Precio" />
+                                        </td>
+                                        <td>@producto.Margen</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success"
+                                                    @onclick="(()=>GuardarProducto(producto))">
+                                                <i class="fa fa-save"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-danger"
+                                                    @onclick="(()=>EliminarProducto(producto))">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+<ToastContainer />
+
+@inject CategoriasService categoriasService
+@inject ProductoService productoService
+
+@inject IToaster toaster
+@inject SweetAlertService swal
+
+@code {
+
+    public ProductoModel Producto { get; set; } = new ProductoModel();
+
+    public List<CategoriaModel> ListaCategorias { get; set; }
+
+    public List<ProductoModel> ListaProductos { get; set; } = new List<ProductoModel>();
+
+    protected override void OnInitialized()
+    {
+        ListaCategorias = categoriasService.ListaCategorias();
+
+        CargarProductos();
+    }
+
+    protected void CargarProductos(int? idCategoria = null)
+    {
+        if (idCategoria == null)
+        {
+            ListaProductos = productoService.ListaProductos();
+        }
+        else
+        {
+            ListaProductos = productoService.ListaProductos(Convert.ToInt32(idCategoria));
+
+        }
+
+    }
+
+    protected void AgregarProducto()
+    {
+        var res = productoService.Crear(Producto);
+
+        if (res.IsSuccess)
+        {
+            toaster.Success(res.Message, "OK");
+
+            var prod = (ProductoModel)res.Objeto;
+            //var prod = res.Objeto as ProductoModel;
+
+            ListaProductos.Add(prod);
+            Producto = new ProductoModel();
+
+            //CargarProductos(); No recomendada
+
+        }
+        else
+        {
+            toaster.Error(res.Message, "Error");
+        }
+    }
+
+    protected void AlCamabiarCategoriaSeleccionada(ChangeEventArgs e)
+    {
+        Producto.IdCategoria = Convert.ToInt32(e.Value);
+
+        CargarProductos(Producto.IdCategoria);
+
+
+    }
+
+    protected async Task EliminarProducto(ProductoModel producto)
+    {
+        var confirm = await swal.FireAsync(new SweetAlertOptions
+        {
+            Title = "¿Confirma que desea eliminar este producto?",
+            Text = "No podrá revertir esta operación",
+            ShowConfirmButton = true,
+            ShowCancelButton = true,
+            ConfirmButtonText = "De acuerdo",
+            CancelButtonText = "Cancelar"
+        });
+
+        if (!confirm.IsConfirmed)
+        {
+            return;
+        }
+
+        var res = productoService.Eliminar(producto.Id);
+
+        if (res.IsSuccess)
+        {
+            toaster.Success(res.Message, "OK");
+            ListaProductos.Remove(producto);
+        }
+        else
+        {
+            toaster.Error(res.Message, "Erro");
+        }
+    }
+
+    protected void GuardarProducto(ProductoModel producto)
+    {
+        var res = productoService.Modificar(producto);
+
+        if (res.IsSuccess)
+        {
+            toaster.Success(res.Message, "OK");
+        }
+        else
+        {
+            toaster.Error(res.Message, "Erro");
+        }
+    }
+
+
+}

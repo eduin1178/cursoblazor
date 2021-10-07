@@ -19,8 +19,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace MITIENDA.BlazorServer
-{
-    
+{    
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -42,7 +41,9 @@ namespace MITIENDA.BlazorServer
             services.AddTransient<MiTiendaDbContext>();
             services.AddTransient<UsuariosService>();
             services.AddTransient<RolesService>();
+
             services.AddTransient<CategoriasService>();
+            services.AddTransient<ProductoService>();
 
             services.AddTransient<AuthProvider>();
             services.AddTransient<AuthenticationStateProvider, MiAuthenticationState>();

@@ -1,4 +1,5 @@
-﻿using MITIENDA.BlazorServer.Data.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using MITIENDA.BlazorServer.Data.Entities;
 using MITIENDA.BlazorServer.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -115,14 +116,27 @@ namespace MITIENDA.BlazorServer.Data.Services
         {
             var res = new MsgResult();
 
-            var entity = _context.Categorias.FirstOrDefault(x=>x.Id == idCategoria);
+            var entity = _context.Categorias
+                .Include(x=>x.Productos)
+                .FirstOrDefault(x=>x.Id == idCategoria);
 
             if (entity==null)
             {
                 res.IsSuccess = false;
                 res.Message = "No se puede eliminar la categoria solicitada porque no existe";
+                res.Code = -1;
                 return res; 
             }
+
+            if (entity.Productos.Count > 0)
+            {
+                res.IsSuccess = false;
+                res.Message = "No se puede eliminar la categoria solicitada porque tiene productos relacionados. " +
+                    "Elimine primero los prodcutos para poder eliminar la categoría";
+                res.Code = -2;
+                return res; 
+            }
+
 
             _context.Categorias.Remove(entity);
            
