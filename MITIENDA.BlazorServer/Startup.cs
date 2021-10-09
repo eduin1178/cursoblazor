@@ -44,6 +44,8 @@ namespace MITIENDA.BlazorServer
 
             services.AddTransient<CategoriasService>();
             services.AddTransient<ProductoService>();
+            services.AddTransient<ClientesService>();
+            services.AddTransient<FacturasService>();
 
             services.AddTransient<AuthProvider>();
             services.AddTransient<AuthenticationStateProvider, MiAuthenticationState>();

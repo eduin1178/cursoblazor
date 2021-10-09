@@ -9,6 +9,7 @@
         </div>
         <div class="card-body">
             <EditForm Model="Producto" OnValidSubmit="AgregarProducto">
+                <DataAnnotationsValidator />
                 <div class="row">
                     <div class="col-4">
                         <label>Categoría</label>
@@ -21,10 +22,12 @@
                                 }
                             }
                         </select>
+                        <ValidationMessage For="(()=>Producto.IdCategoria)" />
                     </div>
                     <div class="col-8">
                         <label>Nombre</label>
                         <input type="text" class="form-control" @bind="Producto.Nombre" />
+                        <ValidationMessage For="(()=>Producto.Nombre)" />
                     </div>
                 </div>
 
@@ -32,6 +35,7 @@
                     <div class="col-2">
                         <label>Referencia</label>
                         <input type="text" class="form-control" @bind="Producto.Referencia" />
+                        <ValidationMessage For="(()=>Producto.Referencia)" />
                     </div>
                     <div class="col-2">
                         <label>Existencia</label>
@@ -40,11 +44,13 @@
                     <div class="col-3">
                         <label>Costo</label>
                         <input type="number" class="form-control" @bind="Producto.Costo" />
+                        <ValidationMessage For="(()=>Producto.Costo)" />
                     </div>
                     <div class="col-5">
                         <label>Precio</label>
                         <div class="input-group">
                             <input type="number" class="form-control" @bind="Producto.Precio" />
+                            <ValidationMessage For="(()=>Producto.Precio)" />
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-primary">Agregar</button>
                             </div>
@@ -52,6 +58,7 @@
                     </div>
                 </div>
 
+            </EditForm>
                 <div class="row">
                     <div class="col-12">
                         <table class="table table-bordered table-sm">
@@ -69,35 +76,37 @@
                             <tbody>
                                 @foreach (var producto in ListaProductos)
                                 {
-                                    <tr>
-                                        <td>
-                                            <input type="text" class="form-control" @bind="producto.Referencia" />
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" @bind="producto.Nombre" />
-                                        </td>
-                                        <td>
-                                            <input type="number" class="form-control" @bind="producto.Stock" />
-                                        </td>
-                                        <td>
-                                            <input type="number" class="form-control" @bind="producto.Costo" />
-                                        </td>
-                                        <td>
-                                            <input type="number" class="form-control" @bind="producto.Precio" />
-                                        </td>
-                                        <td>@producto.Margen</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success"
-                                                    @onclick="(()=>GuardarProducto(producto))">
-                                                <i class="fa fa-save"></i>
-                                            </button>
+                                   
+                                        <tr>
+                                            <td>
+                                                <input type="text" class="form-control" @bind="producto.Referencia" />
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" @bind="producto.Nombre" />
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" @bind="producto.Stock" />
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" @bind="producto.Costo" />
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" @bind="producto.Precio" />
+                                            </td>
+                                            <td>@producto.Margen</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success"
+                                                        @onclick="(()=>GuardarProducto(producto))">
 
-                                            <button type="button" class="btn btn-danger"
-                                                    @onclick="(()=>EliminarProducto(producto))">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                                    <i class="fa fa-save"></i>
+                                                </button>
+
+                                                <button type="button" class="btn btn-danger"
+                                                        @onclick="(()=>EliminarProducto(producto))">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
                                 }
                             </tbody>
                         </table>
@@ -105,7 +114,6 @@
 
                     </div>
                 </div>
-            </EditForm>
         </div>
     </div>
 </div>
@@ -211,6 +219,37 @@
 
     protected void GuardarProducto(ProductoModel producto)
     {
+        if (string.IsNullOrEmpty(producto.Referencia))
+        {
+            toaster.Error("Debe escribir la referencia del producto", "Error");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(producto.Nombre) || producto.Nombre.Length <5)
+        {
+            toaster.Error("El nombre del producto debe ser mayor a 5 caracteres", "Error");
+            return;
+        }
+
+        if (producto.Stock == null)
+        {
+            toaster.Error("Debe escribir el nombre valor del stok", "Error");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(producto.Costo.ToString()))
+        {
+            toaster.Error("Debe escribir el costo del producto", "Error");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(producto.Precio.ToString()))
+        {
+            toaster.Error("Debe escribir el precio del producto", "Error");
+            return;
+        }
+
+
         var res = productoService.Modificar(producto);
 
         if (res.IsSuccess)
@@ -222,6 +261,5 @@
             toaster.Error(res.Message, "Erro");
         }
     }
-
 
 }

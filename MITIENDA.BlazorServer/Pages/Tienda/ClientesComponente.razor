@@ -1,0 +1,200 @@
+﻿@page "/customers"
+
+@attribute [Authorize]
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <h4>Clientes</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <EditForm Model="Cliente" OnValidSubmit="CrearCliente">
+                <DataAnnotationsValidator></DataAnnotationsValidator>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Nombres</label>
+                        <input type="text" class="form-control" @bind="Cliente.Nombres" />
+                        <ValidationMessage For="(()=>Cliente.Nombres)" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>Apellidos</label>
+                        <input type="text" class="form-control" @bind="Cliente.Apellidos" />
+                        <ValidationMessage For="(()=>Cliente.Apellidos)" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>Identificación</label>
+                        <input type="text" class="form-control" @bind="Cliente.Identificacion" />
+                        <ValidationMessage For="(()=>Cliente.Identificacion)" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Dirección</label>
+                        <input type="text" class="form-control" @bind="Cliente.Direccion" />
+                        <ValidationMessage For="(()=>Cliente.Direccion)" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>Teléfono</label>
+                        <input type="tel" class="form-control" @bind="Cliente.Telefono" />
+                        <ValidationMessage For="(()=>Cliente.Telefono)" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>Email</label>
+                        <div class="input-group">
+                            <input type="email" class="form-control" @bind="Cliente.Email" />
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary">Agregar</button>
+                            </div>
+                        </div>
+                        <ValidationMessage For="(()=>Cliente.Email)" />
+                    </div>
+                </div>
+            </EditForm>
+
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
+                                <th>Identifación</th>
+                                <th>Direccion</th>
+                                <th>Telefono</th>
+                                <th>Email</th>
+                                <th>Compras</th>
+                                <th>Utilidad</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ListaClientes)
+                            {
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control" @bind="item.Nombres" />
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" @bind="item.Apellidos" />
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" @bind="item.Identificacion" />
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" @bind="item.Direccion" />
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" @bind="item.Telefono" />
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" @bind="item.Email" />
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-success"
+                                            @onclick="(()=>ModificarCliente(item))">
+                                        <i class="fa fa-save"></i>
+                                    </button>
+                                    <button class="btn btn-danger"
+                                            @onclick="(()=>EliminarCliente(item))">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ToastContainer />
+
+@inject ClientesService clientesService
+
+@inject IToaster toaster
+@inject SweetAlertService swal 
+
+@code {
+
+
+    public ClienteModel Cliente { get; set; } = new ClienteModel();
+
+    public List<ClienteModel> ListaClientes { get; set; } = new List<ClienteModel>();
+
+    protected override void OnInitialized()
+    {
+        CargarClientes();
+    }
+
+    protected void CargarClientes()
+    {
+        ListaClientes = clientesService.ListaClientes();
+    }
+
+    protected void CrearCliente()
+    {
+        var res = clientesService.Crear(Cliente);
+        if (res.IsSuccess)
+        {
+            toaster.Success(res.Message, "OK");
+
+            Cliente.Id = res.Code;
+            ListaClientes.Add(Cliente);
+            Cliente = new ClienteModel();
+        }
+        else
+        {
+            toaster.Error(res.Message, "Error");
+        }
+    }
+
+    protected void ModificarCliente(ClienteModel model)
+    {
+        var res = clientesService.Modificar(model);
+        if (res.IsSuccess)
+        {
+            toaster.Success(res.Message, "OK");
+        }
+        else
+        {
+            toaster.Error(res.Message, "Error");
+        }
+    }
+
+    protected async Task EliminarCliente(ClienteModel model)
+    {
+        var confirm = await swal.FireAsync( new SweetAlertOptions
+        {
+            Title = "¿Confirma que desea eliminar este cliente?",
+            Text = "No podrá deshacer esta operación",
+
+            ShowConfirmButton = true,
+            ShowCancelButton = true,
+            ConfirmButtonText = "Confirmo",
+            CancelButtonText = "Cancelar"
+        });
+
+        if (!confirm.IsConfirmed)
+        {
+            return;
+        }
+
+        var res = clientesService.Eliminar(model.Id);
+
+        if (res.IsSuccess)
+        {
+            toaster.Success(res.Message, "OK");
+            ListaClientes.Remove(model);
+        }
+        else
+        {
+            toaster.Error(res.Message, "Error");
+        }
+    }
+}

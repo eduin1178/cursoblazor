@@ -125,14 +125,14 @@ using Sotsera.Blazor.Toaster;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Tienda\ProductosComponente.razor"
+#line 3 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Tienda\ClientesComponente.razor"
            [Authorize]
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/products")]
-    public partial class ProductosComponente : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/customers")]
+    public partial class ClientesComponente : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -140,52 +140,34 @@ using Sotsera.Blazor.Toaster;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 129 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Tienda\ProductosComponente.razor"
+#line 123 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Tienda\ClientesComponente.razor"
        
 
-    public ProductoModel Producto { get; set; } = new ProductoModel();
 
-    public List<CategoriaModel> ListaCategorias { get; set; }
+    public ClienteModel Cliente { get; set; } = new ClienteModel();
 
-    public List<ProductoModel> ListaProductos { get; set; } = new List<ProductoModel>();
+    public List<ClienteModel> ListaClientes { get; set; } = new List<ClienteModel>();
 
     protected override void OnInitialized()
     {
-        ListaCategorias = categoriasService.ListaCategorias();
-
-        CargarProductos();
+        CargarClientes();
     }
 
-    protected void CargarProductos(int? idCategoria = null)
+    protected void CargarClientes()
     {
-        if (idCategoria == null)
-        {
-            ListaProductos = productoService.ListaProductos();
-        }
-        else
-        {
-            ListaProductos = productoService.ListaProductos(Convert.ToInt32(idCategoria));
-
-        }
-
+        ListaClientes = clientesService.ListaClientes();
     }
 
-    protected void AgregarProducto()
+    protected void CrearCliente()
     {
-        var res = productoService.Crear(Producto);
-
+        var res = clientesService.Crear(Cliente);
         if (res.IsSuccess)
         {
             toaster.Success(res.Message, "OK");
 
-            var prod = (ProductoModel)res.Objeto;
-            //var prod = res.Objeto as ProductoModel;
-
-            ListaProductos.Add(prod);
-            Producto = new ProductoModel();
-
-            //CargarProductos(); No recomendada
-
+            Cliente.Id = res.Code;
+            ListaClientes.Add(Cliente);
+            Cliente = new ClienteModel();
         }
         else
         {
@@ -193,24 +175,29 @@ using Sotsera.Blazor.Toaster;
         }
     }
 
-    protected void AlCamabiarCategoriaSeleccionada(ChangeEventArgs e)
+    protected void ModificarCliente(ClienteModel model)
     {
-        Producto.IdCategoria = Convert.ToInt32(e.Value);
-
-        CargarProductos(Producto.IdCategoria);
-
-
+        var res = clientesService.Modificar(model);
+        if (res.IsSuccess)
+        {
+            toaster.Success(res.Message, "OK");
+        }
+        else
+        {
+            toaster.Error(res.Message, "Error");
+        }
     }
 
-    protected async Task EliminarProducto(ProductoModel producto)
+    protected async Task EliminarCliente(ClienteModel model)
     {
-        var confirm = await swal.FireAsync(new SweetAlertOptions
+        var confirm = await swal.FireAsync( new SweetAlertOptions
         {
-            Title = "¿Confirma que desea eliminar este producto?",
-            Text = "No podrá revertir esta operación",
+            Title = "¿Confirma que desea eliminar este cliente?",
+            Text = "No podrá deshacer esta operación",
+
             ShowConfirmButton = true,
             ShowCancelButton = true,
-            ConfirmButtonText = "De acuerdo",
+            ConfirmButtonText = "Confirmo",
             CancelButtonText = "Cancelar"
         });
 
@@ -219,72 +206,25 @@ using Sotsera.Blazor.Toaster;
             return;
         }
 
-        var res = productoService.Eliminar(producto.Id);
+        var res = clientesService.Eliminar(model.Id);
 
         if (res.IsSuccess)
         {
             toaster.Success(res.Message, "OK");
-            ListaProductos.Remove(producto);
+            ListaClientes.Remove(model);
         }
         else
         {
-            toaster.Error(res.Message, "Erro");
+            toaster.Error(res.Message, "Error");
         }
     }
-
-    protected void GuardarProducto(ProductoModel producto)
-    {
-        if (string.IsNullOrEmpty(producto.Referencia))
-        {
-            toaster.Error("Debe escribir la referencia del producto", "Error");
-            return;
-        }
-
-        if (string.IsNullOrEmpty(producto.Nombre) || producto.Nombre.Length <5)
-        {
-            toaster.Error("El nombre del producto debe ser mayor a 5 caracteres", "Error");
-            return;
-        }
-
-        if (producto.Stock == null)
-        {
-            toaster.Error("Debe escribir el nombre valor del stok", "Error");
-            return;
-        }
-
-        if (string.IsNullOrEmpty(producto.Costo.ToString()))
-        {
-            toaster.Error("Debe escribir el costo del producto", "Error");
-            return;
-        }
-
-        if (string.IsNullOrEmpty(producto.Precio.ToString()))
-        {
-            toaster.Error("Debe escribir el precio del producto", "Error");
-            return;
-        }
-
-
-        var res = productoService.Modificar(producto);
-
-        if (res.IsSuccess)
-        {
-            toaster.Success(res.Message, "OK");
-        }
-        else
-        {
-            toaster.Error(res.Message, "Erro");
-        }
-    }
-
 
 #line default
 #line hidden
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private SweetAlertService swal { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IToaster toaster { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ProductoService productoService { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CategoriasService categoriasService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ClientesService clientesService { get; set; }
     }
 }
 #pragma warning restore 1591

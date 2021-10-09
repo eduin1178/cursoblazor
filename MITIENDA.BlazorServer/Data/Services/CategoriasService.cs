@@ -19,13 +19,15 @@ namespace MITIENDA.BlazorServer.Data.Services
 
         public List<CategoriaModel> ListaCategorias()
         {
-            var query = _context.Categorias.ToList();
+            var query = _context.Categorias
+                .Include(x=>x.Productos)
+                .ToList();
 
             var lista = query.Select(x => new CategoriaModel
             {
                 Id = x.Id,
                 Nombre = x.Nombre,
-                CantidadProductos = 0 //TODO: Contar productos
+                CantidadProductos = x.Productos.Count,
             }).ToList();
 
             return lista;
@@ -35,6 +37,7 @@ namespace MITIENDA.BlazorServer.Data.Services
         public CategoriaModel Categoria(int idCategoria)
         {
             var query = _context.Categorias
+                .Include(x=>x.Productos)
                 .Where(x => x.Id == idCategoria)
                 .ToList();
 
@@ -42,7 +45,7 @@ namespace MITIENDA.BlazorServer.Data.Services
             {
                 Id = x.Id,
                 Nombre = x.Nombre,
-                CantidadProductos = 0 //TODO: Contar productos
+                CantidadProductos = x.Productos.Count,
 
             }).FirstOrDefault();
 

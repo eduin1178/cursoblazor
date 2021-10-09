@@ -6,28 +6,27 @@ using System.Threading.Tasks;
 
 namespace MITIENDA.BlazorServer.Data.Models
 {
-    public class ProductoModel
+    public class ClienteModel
     {
         public int Id { get; set; }
 
         [Required(ErrorMessage ="Campo obligatorio")]
-        public int IdCategoria { get; set; }
+        public string Nombres { get; set; }
 
         [Required(ErrorMessage ="Campo obligatorio")]
-        public string Referencia { get; set; }
-        
-        [Required(ErrorMessage ="Campo obligatorio")]
-        [MinLength(5, ErrorMessage ="Minimo 5 caracteres")]
-        public string Nombre { get; set; }
-        
-        [Required(ErrorMessage ="Campo obligatorio")]
-        public decimal Precio { get; set; }
-        
-        [Required(ErrorMessage ="Campo obligatorio")]
-        public decimal Costo { get; set; }
-        
-        public decimal? Stock { get; set; }
+        public string Apellidos { get; set; }
 
-        public decimal? Margen => (Precio - Costo);
+        [Required(ErrorMessage ="Campo obligatorio")]
+        public string Identificacion { get; set; }
+        
+        [Required(ErrorMessage ="Campo obligatorio")]
+        public string Direccion { get; set; }
+        
+        [Required(ErrorMessage ="Campo obligatorio")]
+        public string Telefono { get; set; }
+        
+        [Required(ErrorMessage ="Campo obligatorio")]
+        [DataType(DataType.EmailAddress,  ErrorMessage ="Email no valido")]
+        public string Email { get; set; }
     }
 }
