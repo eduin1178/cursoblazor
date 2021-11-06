@@ -18,6 +18,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace MITIENDA.BlazorServer
 {    
@@ -39,17 +41,33 @@ namespace MITIENDA.BlazorServer
                     options.UseSqlServer(Configuration.GetConnectionString("MiTiendaDbContext")),
                     ServiceLifetime.Transient);
 
-            services.AddTransient<MiTiendaDbContext>();
-            services.AddTransient<UsuariosService>();
-            services.AddTransient<RolesService>();
 
-            services.AddTransient<CategoriasService>();
-            services.AddTransient<ProductoService>();
-            services.AddTransient<ClientesService>();
-            services.AddTransient<FacturasService>();
+			//AUTENTICACION CON COOKIES
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+				{
+                    options.LoginPath = "/auth/login";
+                    options.AccessDeniedPath = "/auth/login";
+                    options.Cookie.Name = "MITIENDA";
+                    options.ForwardSignIn = CookieAuthenticationDefaults.AuthenticationScheme;
+				});
 
-            services.AddTransient<AuthProvider>();
-            services.AddTransient<AuthenticationStateProvider, MiAuthenticationState>();
+
+            services.AddScoped<MiTiendaDbContext>();
+            services.AddScoped<UsuariosService>();
+            services.AddScoped<RolesService>();
+
+            services.AddScoped<CategoriasService>();
+            services.AddScoped<ProductoService>();
+            services.AddScoped<ClientesService>();
+            services.AddScoped<FacturasService>();
+
+            //services.AddScoped<AuthProvider>();
+            
+            services.AddHttpContextAccessor();
+            services.AddScoped<HttpContextAccessor>();
+
+            services.AddScoped<AuthenticationStateProvider, CookieAuthenticationState>();
 
             //TERCEROS
 
@@ -86,6 +104,9 @@ namespace MITIENDA.BlazorServer
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

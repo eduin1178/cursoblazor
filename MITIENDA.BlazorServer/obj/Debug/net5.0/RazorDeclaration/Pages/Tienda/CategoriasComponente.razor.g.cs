@@ -140,7 +140,7 @@ using Sotsera.Blazor.Toaster;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 57 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Tienda\CategoriasComponente.razor"
+#line 55 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Tienda\CategoriasComponente.razor"
        
 
     public CategoriaModel Model { get; set; } = new CategoriaModel();

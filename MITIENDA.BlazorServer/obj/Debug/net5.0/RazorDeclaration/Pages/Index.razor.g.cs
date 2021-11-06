@@ -124,6 +124,13 @@ using Sotsera.Blazor.Toaster;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
+           [Authorize]
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -133,7 +140,7 @@ using Sotsera.Blazor.Toaster;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
+#line 40 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
        
 
     public int Top { get; set; } = 3;

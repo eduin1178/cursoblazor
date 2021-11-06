@@ -250,3 +250,4 @@ D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Data.E
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Data.SqlServer.pdb
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Model.pdb
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Services.pdb
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Auth\Login.cshtml.g.cs

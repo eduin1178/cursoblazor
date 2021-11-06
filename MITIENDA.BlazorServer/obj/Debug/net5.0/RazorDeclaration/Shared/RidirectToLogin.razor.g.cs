@@ -141,7 +141,7 @@ using Sotsera.Blazor.Toaster;
 
         if (!auth.User.Identity.IsAuthenticated)
         {
-            navigation.NavigateTo("/account/login");
+            navigation.NavigateTo("/auth/login", true);
         }
     }
 

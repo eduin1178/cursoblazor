@@ -1,4 +1,5 @@
-﻿using MITIENDA.Core;
+﻿using Microsoft.EntityFrameworkCore;
+using MITIENDA.Core;
 using MITIENDA.Data.Entities;
 using MITIENDA.Data.SqlServer;
 using MITIENDA.Models;
@@ -23,7 +24,8 @@ namespace MITIENDA.Services
             var res = new MsgResult();
 
             
-            var newUser = _context.Usuarios.FirstOrDefault(x => x.Email == usuario.Email);
+            var newUser = _context.Usuarios                
+                .FirstOrDefault(x => x.Email == usuario.Email);
 
             if (newUser!=null)
             {
@@ -86,7 +88,9 @@ namespace MITIENDA.Services
         {
             var result = new MsgResult();
 
-            var user = _context.Usuarios.FirstOrDefault(u=>u.Email==model.Email);
+            var user = _context.Usuarios
+                .Include(x=>x.Rol)
+                .FirstOrDefault(u=>u.Email==model.Email);
 
             if (user==null)
             {
@@ -107,6 +111,7 @@ namespace MITIENDA.Services
 
             result.IsSuccess = true;
             result.Message = "Acceso concedido";
+            result.Objeto = user;
             return result;
         }
     }

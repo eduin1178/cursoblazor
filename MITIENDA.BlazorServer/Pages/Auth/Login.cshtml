@@ -1,0 +1,77 @@
+﻿@page "/auth/login"
+
+@model MITIENDA.BlazorServer.Pages.Auth.LoginModel
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="_content/Sotsera.Blazor.Toaster/toastr.min.css" rel="stylesheet" />
+
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="css/all.css" rel="stylesheet" />
+    <link href="MITIENDA.BlazorServer.styles.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="col-md-6 offset-md-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <h4>Mi Tienda</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <DataAnnotationsValidator />
+                        <h4 class="card-title text-center">Iniciar Sesión</h4>
+                        <div class="col-md-12 mb-3">
+                            <label>Usuario</label>
+                            <input type="email" class="form-control" asp-for="Model.Email" />
+                            <span asp-validation-for="Model.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label>Contraseña</label>
+                            <input type="password" class="form-control" asp-for="Model.Password" />
+                            <span asp-validation-for="Model.Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1"
+                                       asp-for="Model.RememberMe">
+                                <label class="form-check-label" for="exampleCheck1">Mantener sesión abierta</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <button type="submit" class="btn btn-primary btn-block">Iniciar</button>
+                        </div>
+
+                    </form>
+                    <div class="col-md-12 mb-3">
+                        <a href="/account/recoverpassword"> ¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <hr />
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <h5>¿Aun no tienes una cuenta?</h5>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <a href="/account/register" class="btn btn-success btn-block">Registrarte Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

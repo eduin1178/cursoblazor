@@ -124,6 +124,13 @@ using Sotsera.Blazor.Toaster;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Tienda\VentasCategoriaTrimestreComponent.razor"
+           [Authorize]
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/ventas/trimestre")]
     public partial class VentasCategoriaTrimestreComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -133,7 +140,7 @@ using Sotsera.Blazor.Toaster;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 92 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Tienda\VentasCategoriaTrimestreComponent.razor"
+#line 106 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Tienda\VentasCategoriaTrimestreComponent.razor"
        
 
     public List<VentasCategoriaTrimestreModel> Model { get; set; } = new List<VentasCategoriaTrimestreModel>();
