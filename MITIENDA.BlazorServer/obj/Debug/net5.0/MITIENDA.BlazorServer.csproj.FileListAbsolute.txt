@@ -228,3 +228,15 @@ D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaratio
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Tienda\ProductosComponente.razor.g.cs
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Tienda\ClientesComponente.razor.g.cs
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Tienda\ClientesComponente.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Tienda\FacturaComponente.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Tienda\ListaFacturasComponente.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Tienda\FacturaComponente.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Tienda\ListaFacturasComponente.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Tienda\VentasPorCliente.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Tienda\VentasPorCliente.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Tienda\VentasPorProducto.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Tienda\VentasPorProducto.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Shared\ResumenVentasComponent.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Shared\ResumenVentasComponent.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Tienda\VentasCategoriaTrimestreComponent.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Tienda\VentasCategoriaTrimestreComponent.razor.g.cs

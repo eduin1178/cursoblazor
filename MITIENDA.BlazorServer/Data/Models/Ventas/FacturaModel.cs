@@ -17,7 +17,7 @@ namespace MITIENDA.BlazorServer.Data.Models
         public string Email { get; set; }
         public string Direccion { get; set; }
 
-        public List<ItemFacturaModel> Items { get; set; }
+        public List<ItemFacturaModel> Items { get; set; } = new List<ItemFacturaModel>();
 
         public decimal  Total  => Items.Sum(x=>x.Subtotal);
         public decimal  Ganancia  => Items.Sum(x=>x.Margen);
@@ -31,6 +31,7 @@ namespace MITIENDA.BlazorServer.Data.Models
         public int IdProducto { get; set; }
         public string NombreProducto { get; set; }
         public decimal Costo { get; set; }
+        public string Referencia { get; set; }
 
         public decimal Cantidad { get; set; }
         public decimal Precio { get; set; }

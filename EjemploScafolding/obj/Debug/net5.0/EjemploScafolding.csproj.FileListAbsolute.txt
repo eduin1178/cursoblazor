@@ -1,0 +1,15 @@
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\bin\Debug\net5.0\EjemploScafolding.deps.json
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\bin\Debug\net5.0\EjemploScafolding.runtimeconfig.json
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\bin\Debug\net5.0\EjemploScafolding.runtimeconfig.dev.json
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\bin\Debug\net5.0\EjemploScafolding.dll
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\bin\Debug\net5.0\ref\EjemploScafolding.dll
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\bin\Debug\net5.0\EjemploScafolding.pdb
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\obj\Debug\net5.0\EjemploScafolding.csprojAssemblyReference.cache
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\obj\Debug\net5.0\EjemploScafolding.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\obj\Debug\net5.0\EjemploScafolding.AssemblyInfoInputs.cache
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\obj\Debug\net5.0\EjemploScafolding.AssemblyInfo.cs
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\obj\Debug\net5.0\EjemploScafolding.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\obj\Debug\net5.0\EjemploScafolding.dll
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\obj\Debug\net5.0\ref\EjemploScafolding.dll
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\obj\Debug\net5.0\EjemploScafolding.pdb
+D:\PROYECTOS\CURSO\TIENDA\EjemploScafolding\obj\Debug\net5.0\EjemploScafolding.genruntimeconfig.cache

@@ -124,20 +124,6 @@ using Sotsera.Blazor.Toaster;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 5 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
-using System.Net.Http.Json;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
-using System.Text.Json;
-
-#line default
-#line hidden
-#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -147,107 +133,47 @@ using System.Text.Json;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 13 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
+#line 39 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
        
 
-    public HttpClient Cliente { get; set; }
+    public int Top { get; set; } = 3;
+    public int Año { get; set; } = 2021;
+
+    public List<ResumenVentaModel> Productos { get; set; } = new List<ResumenVentaModel>();
+    public List<ResumenVentaModel> Categorias { get; set; } = new List<ResumenVentaModel>();
+    public List<ResumenVentaModel> Clientes { get; set; } = new List<ResumenVentaModel>();
+    public List<ResumenVentaModel> VentasMes { get; set; } = new List<ResumenVentaModel>();
+
 
     protected override void OnInitialized()
     {
-        Cliente = new HttpClient();
+        CargarDatos();
     }
 
-    protected async Task Enviarmensaje()
+    protected void CargarDatos()
     {
-        var time = Convert.ToInt64((DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds);
-
-        var mensaje = new Root
-        {
-            
-          App =   new App
-        {
-            id = "573127837788",
-            time = time,
-            data = new Data
-            {
-                recipient = new Recipient
-                {
-                    id = "573136707194"
-                },
-                message = new List<Message>
-            {
-                    new Message
-                    {
-                        time = time,
-                        type = "text",
-                        value = "Mensaje enviado desde blazor"
-                    },
-                }
-            }
-
-        }
-        };
-
-        string res = "";
-        var app = JsonSerializer.Serialize<Root>(mensaje);
-
-        var response = await Cliente.PostAsJsonAsync<Root>("https://whapi.io/api/send", mensaje);
-        if (response.IsSuccessStatusCode)
-        {
-            res = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(res);
-        }
-
-
+        Productos = facturaService.ProductosMasVentidos(Top);
+        Categorias = facturaService.MejoresCategorias(Top);
+        Clientes = facturaService.MejoresClientes(Top);
+        VentasMes = facturaService.VentasPorMes(Año, Top);
     }
 
-    public class App
+    protected void OnTopChange(ChangeEventArgs e)
     {
-        public string id { get; set; }
-        public long time { get; set; }
-        public Data data { get; set; }
+        Top = Convert.ToInt32(e.Value);
+        CargarDatos();
     }
 
-    public class Data
+    protected void OnYearChange(ChangeEventArgs e)
     {
-        public Recipient recipient { get; set; }
-        public List<Message> message { get; set; }
+        Año = Convert.ToInt32(e.Value);
+        CargarDatos();
     }
-
-    public class Recipient
-    {
-        public string id { get; set; }
-    }
-
-    public class Profile
-    {
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public string profilepic { get; set; }
-    }
-
-    public class Message
-    {
-        public long time { get; set; }
-        public string type { get; set; }
-        public string value { get; set; }
-    }
-
-    public class Root
-    {
-        public App App { get; set; }
-    }
-
-    protected void ListaRoles()
-    {
-        var lista = rolesService.ListaRoles();
-    }
-
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private RolesService rolesService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private FacturasService facturaService { get; set; }
     }
 }
 #pragma warning restore 1591

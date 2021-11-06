@@ -1,0 +1,103 @@
+﻿@page "/ventas/producto"
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h4>Ventas por Producto</h4>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Productos</label>
+                    <select class="form-control" @bind="IdProducto">
+                        <option value="">Todos</option>
+                        @if (ListaProductos != null)
+                        {
+                            @foreach (var item in ListaProductos)
+                            {
+                                <option value="@item.Id">@item.Nombre</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label>Desde</label>
+                    <input type="date" class="form-control" @bind="Desde" />
+                </div>
+                <div class="col-md-4">
+                    <label>Hasta</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control" @bind="Hasta" />
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-success"
+                                    @onclick="ListaVentas">
+                                Buscar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered table-sm">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Total</th>
+                                <th>Margen</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Ventas)
+                            {
+                                <tr>
+                                    <td>@item.NumeroFactura</td>
+                                    <td>@item.FechaFactura.ToShortDateString()</td>
+                                    <td>@item.NombreClinte</td>
+                                    <td>@item.Cantidad</td>
+                                    <td>@item.Precio.ToString("c2")</td>
+                                    <td>@item.Total.ToString("c2")</td>
+                                    <td>@item.Margen.ToString("c2")</td>
+                                </tr>
+                            }
+                            <tr>
+                                <td colspan="5">TOTAL</td>
+                                <td>@Ventas.Sum(x => x.Total).ToString("c2")</td>
+                                <td>@Ventas.Sum(x => x.Margen).ToString("c2")</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@inject ProductoService productoService
+@inject FacturasService facturaService
+@code {
+
+
+    public int IdProducto { get; set; }
+    public DateTime Desde { get; set; } = DateTime.Now.AddDays(-30);
+    public DateTime Hasta { get; set; } = DateTime.Now;
+
+    public List<ProductoModel> ListaProductos { get; set; } = new List<ProductoModel>();
+    public List<VentasProductoModel> Ventas { get; set; } = new List<VentasProductoModel>();
+
+    protected override void OnInitialized()
+    {
+        ListaProductos = productoService.ListaProductos();
+    }
+
+    protected void ListaVentas()
+    {
+        Ventas = facturaService.VentasProducto(IdProducto, Desde, Hasta);
+    }
+
+}
+

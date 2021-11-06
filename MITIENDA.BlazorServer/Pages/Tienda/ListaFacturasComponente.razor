@@ -1,0 +1,138 @@
+﻿@page "/facturas"
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h4>Facturas</h4>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label>Cliente</label>
+                    <select class="form-control" @bind="IdCliente">
+                        <option value="">Todos</option>
+                        @if (ListaClientes != null)
+                        {
+                            @foreach (var item in ListaClientes)
+                            {
+                                <option value="@item.Id">@item.NombreCompleto</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-3">
+                    <label>Desde</label>
+                    <input type="date" class="form-control" @bind="Desde" />
+                </div>
+                <div class="col-3">
+                    <label>Hasta</label>
+                    <input type="date" class="form-control" @bind="Hasta" />
+                </div>
+                <div class="col-2">
+                    <label>Opciones</label><br />
+                    <button type="button" class="btn btn-success" @onclick="CargarFacturas">Buscar</button>
+                    <a href="/facturas/add" class="btn btn-primary">Nueva</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Número</th>
+                                <th>Nombre del cliente</th>
+                                <th>Fecha</th>
+                                <th>Valor Total</th>
+                                <th>Productos</th>
+                                <th>Utilidad</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var factura in ListaFacturas)
+                            {
+                                <tr>
+                                    <td>@factura.Numero</td>
+                                    <td>@factura.NombreCliente</td>
+                                    <td>@factura.Fecha.ToShortDateString()</td>
+                                    <td class="text-right">@factura.Total.ToString("c2")</td>
+                                    <td class="text-right">@factura.Items.Count</td>
+                                    <td class="text-right">@factura.Ganancia.ToString("c2")</td>
+                                    <td>
+                                        <a href="/facturas/@factura.Id" class="btn btn-success">Abrir</a>
+                                        <button type="button"
+                                                @onclick="(()=>EliminarFactura(factura))"
+                                                class="btn btn-danger">Eliminar</button>
+                                    </td>
+                                </tr>
+
+                            }
+                         
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ToastContainer/>
+
+@inject FacturasService facturaService
+@inject ClientesService clientesService
+
+@inject IToaster toaster
+@inject SweetAlertService swal
+ 
+@code {
+
+    public DateTime Desde { get; set; } = DateTime.Now.AddDays(-365);
+    public DateTime Hasta { get; set; } = DateTime.Now;
+
+    public int? IdCliente { get; set; }
+
+    public List<FacturaModel> ListaFacturas { get; set; } = new List<FacturaModel>();
+    public List<ClienteModel> ListaClientes { get; set; }
+
+    protected override void OnInitialized()
+    {
+        ListaClientes = clientesService.ListaClientes();
+        CargarFacturas();
+    }
+
+    protected void CargarFacturas()
+    {
+        var hasta = Hasta.AddHours(23).AddMinutes(59).AddSeconds(59);
+        ListaFacturas = facturaService.ListaFacturas(Desde, hasta, IdCliente);
+    }
+
+    protected async Task EliminarFactura(FacturaModel model)
+    {
+        var confirm = await swal.FireAsync(new SweetAlertOptions
+        {
+            Title = "¿Confirma que desea eliminar esta factura?",
+            Text = "Si la elimina, no podrá recuperarla",
+            ShowConfirmButton = true,
+            ConfirmButtonText = "Si, eliminar",
+            ShowCancelButton = true,
+            CancelButtonText = "No, no la elimine"
+        });
+
+        if (!confirm.IsConfirmed)
+        {
+            return;
+        }
+
+        var res = facturaService.Eliminar(model.Id);
+        if (res.IsSuccess)
+        {
+            toaster.Success(res.Message, "OK");
+            ListaFacturas.Remove(model);
+        }
+        else
+        {
+            toaster.Error(res.Message, "Error");
+        }
+    }
+
+}

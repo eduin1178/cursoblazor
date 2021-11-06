@@ -1,0 +1,106 @@
+﻿@page "/ventas/trimestre"
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <h4>Ventas por Categoría y Trimestre</h4>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Año</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" @bind="Year" />
+                        <div class="input-group-append">
+                            <button class="btn btn-success"
+                                    @onclick="CargarDatos">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @if (Model == null)
+                    {
+                        <p>Cargando...</p>
+                    }
+                    else
+                    {
+                        @if (Model.Count == 0)
+                        {
+                            <p>No hay datos</p>
+                        }
+                        else
+                        {
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Categoria</th>
+                                        <th colspan="2">Q1</th>
+                                        <th colspan="2">Q2</th>
+                                        <th colspan="2">Q3</th>
+                                        <th colspan="2">Q4</th>
+                                        <th colspan="2">Total</th>
+                                    </tr>
+                                    <tr>
+                                        <th>$</th>
+                                        <th>%</th>
+
+                                        <th>$</th>
+                                        <th>%</th>
+
+                                        <th>$</th>
+                                        <th>%</th>
+
+                                        <th>$</th>
+                                        <th>%</th>
+
+                                        <th>$</th>
+                                        <th>%</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Categoria</td>
+                                            <td>@item.VentasQ1.ToString("c0")</td>
+                                            <td>@item.PVQ1.ToString("p1")</td>
+                                            <td>@item.VentasQ2.ToString("c0")</td>
+                                            <td>@item.PVQ2.ToString("p1")</td>
+                                            <td>@item.VentasQ3.ToString("c0")</td>
+                                            <td>@item.PVQ3.ToString("p1")</td>
+                                            <td>@item.VentasQ4.ToString("c0")</td>
+                                            <td>@item.PVQ4.ToString("p1")</td>
+                                            <td>@item.VentasTotales.ToString("c0")</td>
+                                            <td>@item.PVTotales.ToString("p1")</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@inject FacturasService facturasService
+@code {
+
+    public List<VentasCategoriaTrimestreModel> Model { get; set; } = new List<VentasCategoriaTrimestreModel>();
+    public int Year { get; set; } = 2021;
+
+    protected override void OnInitialized()
+    {
+        CargarDatos();
+    }
+
+    protected void CargarDatos()
+    {
+        Model = facturasService.VentasPorTrimestreCategoria(Year);
+    }
+}

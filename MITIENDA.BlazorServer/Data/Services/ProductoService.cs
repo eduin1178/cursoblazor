@@ -34,6 +34,24 @@ namespace MITIENDA.BlazorServer.Data.Services
             return model;
         }
 
+        public ProductoModel Producto(string busqueda)
+        {
+            var model = _context.Productos
+                .Where(x=>x.Referencia.Contains(busqueda) || x.Nombre.Contains(busqueda) )
+                .Select(x=> new ProductoModel
+                {
+                    Id = x.Id,
+                    IdCategoria = x.IdCategoria,
+                    Referencia = x.Referencia,
+                    Nombre = x.Nombre,
+                    Costo = x.Costo,
+                    Precio = x.Precio,
+                    Stock = x.Stock,
+                }).FirstOrDefault();
+
+            return model;
+        }
+
         public List<ProductoModel> ListaProductos()
         {
             var model = _context.Productos

@@ -1,0 +1,45 @@
+﻿@if (Model == null)
+{
+    <p>Cargando...</p>
+}
+else
+{
+    @if (Model.Count == 0)
+    {
+        <p>No hay datos</p>
+    }
+    else
+    {
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>@Nombre</th>
+                    <th>Unidades</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                <tr>
+                    <td>@item.Descripcion</td>
+                    <td>@item.Unidades</td>
+                    <td>@item.Valor</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+}
+
+@code {
+
+    [Parameter]
+    public string Nombre { get; set; }
+
+    [Parameter]
+    public List<ResumenVentaModel> Model { get; set; }
+}

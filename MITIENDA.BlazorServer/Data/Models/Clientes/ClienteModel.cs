@@ -16,6 +16,8 @@ namespace MITIENDA.BlazorServer.Data.Models
         [Required(ErrorMessage ="Campo obligatorio")]
         public string Apellidos { get; set; }
 
+        public string NombreCompleto  => $"{Nombres} {Apellidos}";
+
         [Required(ErrorMessage ="Campo obligatorio")]
         public string Identificacion { get; set; }
         
