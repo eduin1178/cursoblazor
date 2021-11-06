@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MITIENDA.Core\MITIENDA.Core.csproj" />
+    <ProjectReference Include="..\MITIENDA.Data.Entities\MITIENDA.Data.Entities.csproj" />
+    <ProjectReference Include="..\MITIENDA.Data.SqlServer\MITIENDA.Data.SqlServer.csproj" />
+    <ProjectReference Include="..\MITIENDA.Model\MITIENDA.Model.csproj" />
+  </ItemGroup>
+
+</Project>

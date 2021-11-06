@@ -1,0 +1,15 @@
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\bin\Debug\net5.0\MITIENDA.Data.Entities.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\obj\Debug\net5.0\MITIENDA.Data.SqlServer.csprojAssemblyReference.cache
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\obj\Debug\net5.0\MITIENDA.Data.SqlServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\obj\Debug\net5.0\MITIENDA.Data.SqlServer.AssemblyInfoInputs.cache
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\obj\Debug\net5.0\MITIENDA.Data.SqlServer.AssemblyInfo.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\bin\Debug\net5.0\MITIENDA.Data.SqlServer.deps.json
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\bin\Debug\net5.0\MITIENDA.Data.SqlServer.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\bin\Debug\net5.0\ref\MITIENDA.Data.SqlServer.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\bin\Debug\net5.0\MITIENDA.Data.SqlServer.pdb
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\bin\Debug\net5.0\MITIENDA.Data.Entities.pdb
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\obj\Debug\net5.0\MITIENDA.Data.SqlServer.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\obj\Debug\net5.0\MITIENDA.Data.SqlServer.csproj.CopyComplete
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\obj\Debug\net5.0\MITIENDA.Data.SqlServer.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\obj\Debug\net5.0\ref\MITIENDA.Data.SqlServer.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Data.SqlServer\obj\Debug\net5.0\MITIENDA.Data.SqlServer.pdb

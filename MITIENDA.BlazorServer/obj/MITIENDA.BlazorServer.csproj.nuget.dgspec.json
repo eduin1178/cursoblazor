@@ -37,7 +37,23 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Core\\MITIENDA.Core.csproj": {
+                "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Core\\MITIENDA.Core.csproj"
+              },
+              "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj": {
+                "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj"
+              },
+              "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.SqlServer\\MITIENDA.Data.SqlServer.csproj": {
+                "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.SqlServer\\MITIENDA.Data.SqlServer.csproj"
+              },
+              "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Model\\MITIENDA.Model.csproj": {
+                "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Model\\MITIENDA.Model.csproj"
+              },
+              "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Services\\MITIENDA.Services.csproj": {
+                "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Services\\MITIENDA.Services.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -60,11 +76,11 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[5.0.11, )"
             },
             "Sotsera.Blazor.Toaster": {
               "target": "Package",
@@ -85,6 +101,353 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Core\\MITIENDA.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Core\\MITIENDA.Core.csproj",
+        "projectName": "MITIENDA.Core",
+        "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Core\\MITIENDA.Core.csproj",
+        "packagesPath": "C:\\Users\\Eduin\\.nuget\\packages\\",
+        "outputPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\19.3.0.43\\ToolboxNuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Eduin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj",
+        "projectName": "MITIENDA.Data.Entities",
+        "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj",
+        "packagesPath": "C:\\Users\\Eduin\\.nuget\\packages\\",
+        "outputPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\19.3.0.43\\ToolboxNuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Eduin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.SqlServer\\MITIENDA.Data.SqlServer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.SqlServer\\MITIENDA.Data.SqlServer.csproj",
+        "projectName": "MITIENDA.Data.SqlServer",
+        "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.SqlServer\\MITIENDA.Data.SqlServer.csproj",
+        "packagesPath": "C:\\Users\\Eduin\\.nuget\\packages\\",
+        "outputPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.SqlServer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\19.3.0.43\\ToolboxNuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Eduin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj": {
+                "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Model\\MITIENDA.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Model\\MITIENDA.Model.csproj",
+        "projectName": "MITIENDA.Model",
+        "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Model\\MITIENDA.Model.csproj",
+        "packagesPath": "C:\\Users\\Eduin\\.nuget\\packages\\",
+        "outputPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\19.3.0.43\\ToolboxNuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Eduin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.208\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Services\\MITIENDA.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Services\\MITIENDA.Services.csproj",
+        "projectName": "MITIENDA.Services",
+        "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Services\\MITIENDA.Services.csproj",
+        "packagesPath": "C:\\Users\\Eduin\\.nuget\\packages\\",
+        "outputPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\WPF\\19.3.0.43\\ToolboxNuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Eduin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Syncfusion Toolbox for WPF.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 19.1\\Components\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Core\\MITIENDA.Core.csproj": {
+                "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Core\\MITIENDA.Core.csproj"
+              },
+              "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj": {
+                "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj"
+              },
+              "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.SqlServer\\MITIENDA.Data.SqlServer.csproj": {
+                "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.SqlServer\\MITIENDA.Data.SqlServer.csproj"
+              },
+              "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Model\\MITIENDA.Model.csproj": {
+                "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Model\\MITIENDA.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

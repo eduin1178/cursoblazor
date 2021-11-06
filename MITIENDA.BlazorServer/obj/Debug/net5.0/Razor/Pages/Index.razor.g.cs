@@ -81,14 +81,14 @@ using MITIENDA.BlazorServer.Shared;
 #nullable disable
 #nullable restore
 #line 14 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
-using MITIENDA.BlazorServer.Data.Services;
+using MITIENDA.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 15 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\_Imports.razor"
-using MITIENDA.BlazorServer.Data.Models;
+using MITIENDA.Models;
 
 #line default
 #line hidden
@@ -196,7 +196,7 @@ using Sotsera.Blazor.Toaster;
             __builder.AddAttribute(39, "class", "col-md-4");
             __builder.OpenComponent<MITIENDA.BlazorServer.Shared.ResumenVentasComponent>(40);
             __builder.AddAttribute(41, "Nombre", "Producto");
-            __builder.AddAttribute(42, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<MITIENDA.BlazorServer.Data.Models.ResumenVentaModel>>(
+            __builder.AddAttribute(42, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<MITIENDA.Models.ResumenVentaModel>>(
 #nullable restore
 #line 20 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
                                                          Productos
@@ -212,7 +212,7 @@ using Sotsera.Blazor.Toaster;
             __builder.AddAttribute(45, "class", "col-md-4");
             __builder.OpenComponent<MITIENDA.BlazorServer.Shared.ResumenVentasComponent>(46);
             __builder.AddAttribute(47, "Nombre", "Categoria");
-            __builder.AddAttribute(48, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<MITIENDA.BlazorServer.Data.Models.ResumenVentaModel>>(
+            __builder.AddAttribute(48, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<MITIENDA.Models.ResumenVentaModel>>(
 #nullable restore
 #line 24 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
                                                           Categorias
@@ -228,7 +228,7 @@ using Sotsera.Blazor.Toaster;
             __builder.AddAttribute(51, "class", "col-md-4");
             __builder.OpenComponent<MITIENDA.BlazorServer.Shared.ResumenVentasComponent>(52);
             __builder.AddAttribute(53, "Nombre", "Cliente");
-            __builder.AddAttribute(54, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<MITIENDA.BlazorServer.Data.Models.ResumenVentaModel>>(
+            __builder.AddAttribute(54, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<MITIENDA.Models.ResumenVentaModel>>(
 #nullable restore
 #line 28 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
                                                         Clientes
@@ -247,7 +247,7 @@ using Sotsera.Blazor.Toaster;
             __builder.AddAttribute(59, "class", "col-md-4");
             __builder.OpenComponent<MITIENDA.BlazorServer.Shared.ResumenVentasComponent>(60);
             __builder.AddAttribute(61, "Nombre", "Mes");
-            __builder.AddAttribute(62, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<MITIENDA.BlazorServer.Data.Models.ResumenVentaModel>>(
+            __builder.AddAttribute(62, "Model", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<MITIENDA.Models.ResumenVentaModel>>(
 #nullable restore
 #line 33 "D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\Pages\Index.razor"
                                                     VentasMes

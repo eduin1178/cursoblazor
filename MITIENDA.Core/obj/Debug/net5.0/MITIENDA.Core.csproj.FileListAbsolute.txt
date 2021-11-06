@@ -1,0 +1,12 @@
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\bin\Debug\net5.0\MITIENDA.Core.deps.json
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\bin\Debug\net5.0\MITIENDA.Core.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\bin\Debug\net5.0\ref\MITIENDA.Core.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\bin\Debug\net5.0\MITIENDA.Core.pdb
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\obj\Debug\net5.0\MITIENDA.Core.csprojAssemblyReference.cache
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\obj\Debug\net5.0\MITIENDA.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\obj\Debug\net5.0\MITIENDA.Core.AssemblyInfoInputs.cache
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\obj\Debug\net5.0\MITIENDA.Core.AssemblyInfo.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\obj\Debug\net5.0\MITIENDA.Core.csproj.CoreCompileInputs.cache
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\obj\Debug\net5.0\MITIENDA.Core.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\obj\Debug\net5.0\ref\MITIENDA.Core.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.Core\obj\Debug\net5.0\MITIENDA.Core.pdb

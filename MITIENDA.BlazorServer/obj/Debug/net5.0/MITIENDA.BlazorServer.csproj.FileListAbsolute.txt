@@ -240,3 +240,13 @@ D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaratio
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Shared\ResumenVentasComponent.razor.g.cs
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\RazorDeclaration\Pages\Tienda\VentasCategoriaTrimestreComponent.razor.g.cs
 D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\obj\Debug\net5.0\Razor\Pages\Tienda\VentasCategoriaTrimestreComponent.razor.g.cs
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Core.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Data.Entities.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Data.SqlServer.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Model.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Services.dll
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Core.pdb
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Data.Entities.pdb
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Data.SqlServer.pdb
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Model.pdb
+D:\PROYECTOS\CURSO\TIENDA\MITIENDA.BlazorServer\bin\Debug\net5.0\MITIENDA.Services.pdb

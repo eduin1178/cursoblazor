@@ -7,9 +7,22 @@
   <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.1.5" />
     <PackageReference Include="CurrieTechnologies.Razor.SweetAlert2" Version="5.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.11" />
     <PackageReference Include="Sotsera.Blazor.Toaster" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MITIENDA.Core\MITIENDA.Core.csproj" />
+    <ProjectReference Include="..\MITIENDA.Data.Entities\MITIENDA.Data.Entities.csproj" />
+    <ProjectReference Include="..\MITIENDA.Data.SqlServer\MITIENDA.Data.SqlServer.csproj" />
+    <ProjectReference Include="..\MITIENDA.Model\MITIENDA.Model.csproj" />
+    <ProjectReference Include="..\MITIENDA.Services\MITIENDA.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Extensions\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
 </Project>

@@ -180,11 +180,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/5.0.10": {
+      "Microsoft.EntityFrameworkCore/5.0.11": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.10",
-          "Microsoft.EntityFrameworkCore.Analyzers": "5.0.10",
+          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.11",
+          "Microsoft.EntityFrameworkCore.Analyzers": "5.0.11",
           "Microsoft.Extensions.Caching.Memory": "5.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.2",
           "Microsoft.Extensions.Logging": "5.0.0",
@@ -199,7 +199,7 @@
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/5.0.10": {
+      "Microsoft.EntityFrameworkCore.Abstractions/5.0.11": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
@@ -208,7 +208,7 @@
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/5.0.10": {
+      "Microsoft.EntityFrameworkCore.Analyzers/5.0.11": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -217,10 +217,10 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/5.0.10": {
+      "Microsoft.EntityFrameworkCore.Relational/5.0.11": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "5.0.10",
+          "Microsoft.EntityFrameworkCore": "5.0.11",
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
         },
         "compile": {
@@ -230,11 +230,11 @@
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/5.0.10": {
+      "Microsoft.EntityFrameworkCore.SqlServer/5.0.11": {
         "type": "package",
         "dependencies": {
           "Microsoft.Data.SqlClient": "2.0.1",
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.10"
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.11"
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
@@ -1626,6 +1626,67 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "MITIENDA.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MITIENDA.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MITIENDA.Core.dll": {}
+        }
+      },
+      "MITIENDA.Data.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MITIENDA.Data.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MITIENDA.Data.Entities.dll": {}
+        }
+      },
+      "MITIENDA.Data.SqlServer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "MITIENDA.Data.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.11",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11"
+        },
+        "compile": {
+          "bin/placeholder/MITIENDA.Data.SqlServer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MITIENDA.Data.SqlServer.dll": {}
+        }
+      },
+      "MITIENDA.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MITIENDA.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MITIENDA.Model.dll": {}
+        }
+      },
+      "MITIENDA.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "MITIENDA.Core": "1.0.0",
+          "MITIENDA.Data.Entities": "1.0.0",
+          "MITIENDA.Data.SqlServer": "1.0.0",
+          "MITIENDA.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MITIENDA.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MITIENDA.Services.dll": {}
+        }
       }
     }
   },
@@ -1946,73 +2007,73 @@
         "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb"
       ]
     },
-    "Microsoft.EntityFrameworkCore/5.0.10": {
-      "sha512": "w5+5oewaQWDj4ChxxjLhdxIi98dK+kq7wvqnTco9PodkqHIDMfKk+5fQCQGLQrbhTdNaqyfYE1ApFP66mLXv6Q==",
+    "Microsoft.EntityFrameworkCore/5.0.11": {
+      "sha512": "2DQJvH6NRPRKPOR6ZaJe2pDn0bSpQZSzHk+7QatFo06KfvP3Tixy5DAOviXkP6963FEQMuVDSvZef1amORBnaw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/5.0.10",
+      "path": "microsoft.entityframeworkcore/5.0.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.dll",
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.5.0.10.nupkg.sha512",
+        "microsoft.entityframeworkcore.5.0.11.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/5.0.10": {
-      "sha512": "Ib85lZI/jxvsKcCS0GHVeqBv/JGzEvKa6HkoyxNu0EDmzDoh4OFl+dDKSx4Vr6I5YWT7nQj3sz6I4I0wHSN0xg==",
+    "Microsoft.EntityFrameworkCore.Abstractions/5.0.11": {
+      "sha512": "Ut1BeIwAavUncIChZ0jM7qdqVsnLI1i2eCn/7rdqpVW/JldPFMQzlCMBtiq7dGuVMSniDNUnc93olYtttyD/Fg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/5.0.10",
+      "path": "microsoft.entityframeworkcore.abstractions/5.0.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.5.0.10.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.5.0.11.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/5.0.10": {
-      "sha512": "MBnG+g6jrmK72y4rU+4y2btHrl72i2q3zrXG3pj2zZGXXrG9Q4SlwL5ul0ASmQXYjhJ4VpDfd4o1/gdRPsa2jA==",
+    "Microsoft.EntityFrameworkCore.Analyzers/5.0.11": {
+      "sha512": "6vCGQY0H667qkV5fGuhHzWPveF0dpEwEs9xQyDgamwxkIN7LrPHQGp2eOXj6xVF+i8noTLtTR4sNMizKSnI2JA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/5.0.10",
+      "path": "microsoft.entityframeworkcore.analyzers/5.0.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.5.0.10.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.5.0.11.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/5.0.10": {
-      "sha512": "3l7GA+0y5E3kDOl85KRHhC0zXYA/CyQBQqDXvFGkqYzdPMRyWQkaQz2+yN4CN/SC+TVa48FPIAc2Wim8aWAliQ==",
+    "Microsoft.EntityFrameworkCore.Relational/5.0.11": {
+      "sha512": "6JLLJbi5Rh2LicrGi7nnhbmkQGCKi72uhjlAY/ozJr6cJdHOaMCUeWfglgrXUwvA5C+oE814eOxjeTdEF9oTyQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/5.0.10",
+      "path": "microsoft.entityframeworkcore.relational/5.0.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.5.0.10.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.5.0.11.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/5.0.10": {
-      "sha512": "HyZK8UIsoI14uIMF6eNlg4lCzWWxRrwBVJ8ZJztOqhqQSO/3TX03MzoPnz/yMN5Hqv+2lbEp29wnuUowjGEcng==",
+    "Microsoft.EntityFrameworkCore.SqlServer/5.0.11": {
+      "sha512": "RQVMP2DmrHz/7rxBN/3fAfun1QOWAcqJMZLBfXr+K+rSgqXn/fIeTQ0k7Bms9LQO9v90PGPyYhcS7t5QhUw1jQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/5.0.10",
+      "path": "microsoft.entityframeworkcore.sqlserver/5.0.11",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.5.0.10.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.5.0.11.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
@@ -6066,14 +6127,44 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "MITIENDA.Core/1.0.0": {
+      "type": "project",
+      "path": "../MITIENDA.Core/MITIENDA.Core.csproj",
+      "msbuildProject": "../MITIENDA.Core/MITIENDA.Core.csproj"
+    },
+    "MITIENDA.Data.Entities/1.0.0": {
+      "type": "project",
+      "path": "../MITIENDA.Data.Entities/MITIENDA.Data.Entities.csproj",
+      "msbuildProject": "../MITIENDA.Data.Entities/MITIENDA.Data.Entities.csproj"
+    },
+    "MITIENDA.Data.SqlServer/1.0.0": {
+      "type": "project",
+      "path": "../MITIENDA.Data.SqlServer/MITIENDA.Data.SqlServer.csproj",
+      "msbuildProject": "../MITIENDA.Data.SqlServer/MITIENDA.Data.SqlServer.csproj"
+    },
+    "MITIENDA.Model/1.0.0": {
+      "type": "project",
+      "path": "../MITIENDA.Model/MITIENDA.Model.csproj",
+      "msbuildProject": "../MITIENDA.Model/MITIENDA.Model.csproj"
+    },
+    "MITIENDA.Services/1.0.0": {
+      "type": "project",
+      "path": "../MITIENDA.Services/MITIENDA.Services.csproj",
+      "msbuildProject": "../MITIENDA.Services/MITIENDA.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Blazored.LocalStorage >= 4.1.5",
       "CurrieTechnologies.Razor.SweetAlert2 >= 5.0.2",
-      "Microsoft.EntityFrameworkCore >= 5.0.10",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10",
+      "MITIENDA.Core >= 1.0.0",
+      "MITIENDA.Data.Entities >= 1.0.0",
+      "MITIENDA.Data.SqlServer >= 1.0.0",
+      "MITIENDA.Model >= 1.0.0",
+      "MITIENDA.Services >= 1.0.0",
+      "Microsoft.EntityFrameworkCore >= 5.0.11",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.11",
       "Sotsera.Blazor.Toaster >= 3.0.0"
     ]
   },
@@ -6116,7 +6207,23 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Core\\MITIENDA.Core.csproj": {
+              "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Core\\MITIENDA.Core.csproj"
+            },
+            "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj": {
+              "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.Entities\\MITIENDA.Data.Entities.csproj"
+            },
+            "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.SqlServer\\MITIENDA.Data.SqlServer.csproj": {
+              "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Data.SqlServer\\MITIENDA.Data.SqlServer.csproj"
+            },
+            "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Model\\MITIENDA.Model.csproj": {
+              "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Model\\MITIENDA.Model.csproj"
+            },
+            "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Services\\MITIENDA.Services.csproj": {
+              "projectPath": "D:\\PROYECTOS\\CURSO\\TIENDA\\MITIENDA.Services\\MITIENDA.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -6139,11 +6246,11 @@
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[5.0.10, )"
+            "version": "[5.0.11, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "[5.0.10, )"
+            "version": "[5.0.11, )"
           },
           "Sotsera.Blazor.Toaster": {
             "target": "Package",

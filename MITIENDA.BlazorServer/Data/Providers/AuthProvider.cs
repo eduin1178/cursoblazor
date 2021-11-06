@@ -1,6 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
-using MITIENDA.BlazorServer.Data.Models;
+using MITIENDA.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
